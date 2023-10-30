@@ -28,12 +28,21 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
             error.exec()
             return
 
-        left_border = int(self.left_border_text_edit.toPlainText())
-        right_border = int(self.right_border_text_edit.toPlainText())
+        if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
+            left_border = int(self.left_border_text_edit.toPlainText())
+            right_border = int(self.right_border_text_edit.toPlainText())
+        else:
+            left_border = ord(self.left_border_text_edit.toPlainText())
+            right_border = ord(self.right_border_text_edit.toPlainText())
         size = 10
         if len(self.array_size_text_edit.toPlainText()) != 0:
             size = int(self.array_size_text_edit.toPlainText())
-        self.__array = array_generator.generate(left_border, right_border, size)
+        array = array_generator.generate(left_border, right_border, size)
+        if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
+            self.__array = array
+        else:
+            for i in range(0, size):
+                self.__array.append(chr(array[i]))
         self.array_text_edit.setText(' '.join([str(i) for i in self.__array]))
 
     def __sort(self):
