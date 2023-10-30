@@ -1,6 +1,6 @@
 def merge_sort_nums(arr, left, right):
     if left >= right:
-        return
+        return arr
 
     mid = int((left + right) / 2)
 
@@ -10,7 +10,7 @@ def merge_sort_nums(arr, left, right):
     i = left
     j = mid + 1
     tmp = list()
-    for step in range(0, right - left + 2):
+    for step in range(0, right - left + 1):
         if j > right or (i < mid + 1 and arr[i] < arr[j]):
             tmp.append(arr[i])
             i += 1
@@ -18,7 +18,7 @@ def merge_sort_nums(arr, left, right):
             tmp.append(arr[j])
             j += 1
 
-    for step in range(0, right - left + 2):
+    for step in range(0, right - left + 1):
         if arr[left + step] != tmp[step]:
             arr[left + step] = tmp[step]
 
@@ -27,7 +27,7 @@ def merge_sort_nums(arr, left, right):
 
 def merge_sort_strings(arr, left, right):
     if left >= right:
-        return
+        return arr
 
     mid = int((left + right) / 2)
 

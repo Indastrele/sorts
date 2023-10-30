@@ -36,12 +36,12 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
         self.__array = array_generator.generate(left_border, right_border, size)
         self.array_text_edit.setText(' '.join([str(i) for i in self.__array]))
 
-    """def __sort(self):
-        if self.__array is int or self.__array is float:
+    def __sort(self):
+        if str(self.__array[0]).isdigit():
             self.__array = sorts.merge_sort_nums(self.__array, 0, len(self.__array))
             self.array_text_edit.setText(self.array_text_edit.toPlainText() + f"\n{self.__array}")
         else:
-            self.__array = sorts.merge_sort_strings(self.__array, 0, len(self.__array))"""
+            self.__array = sorts.merge_sort_strings(self.__array, 0, len(self.__array))
 
 
 def main():
