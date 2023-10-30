@@ -1,5 +1,5 @@
 """
-Program is made by Stanislau Yudzin from group 10710322
+Program is made by Stanislau Yudzin from group 10701322
 BNTU 2023
 """
 
@@ -21,18 +21,21 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
         self.generate_button.clicked.connect(self.__generated_array)
 
     def __generated_array(self):
+        error = QtWidgets.QMessageBox()
         if len(self.left_border_text_edit.toPlainText()) == 0 or len(self.right_border_text_edit.toPlainText()) == 0:
-            error = QtWidgets.QMessageBox()
-            error.setText("No input")
+            error.setText("No input.")
             error.setWindowTitle("Error")
-            error.setIcon(QtWidgets.QMessageBox.Icon.Warning)
             error.exec()
             return
 
-        if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
+        if self.left_border_text_edit.toPlainText().isdigit() and self.right_border_text_edit.toPlainText().isdigit():
             left_border = int(self.left_border_text_edit.toPlainText())
             right_border = int(self.right_border_text_edit.toPlainText())
-        elif self.left_border_text_edit.toPlainText().isalpha() or self.right_border_text_edit.toPlainText().isalpha():
+        elif self.left_border_text_edit.toPlainText().isalpha() and self.right_border_text_edit.toPlainText().isalpha():
+            if len(self.left_border_text_edit.toPlainText()) > 1 or len(self.right_border_text_edit.toPlainText()) > 1:
+                error.setText("Input is string, not char.")
+                error.setWindowTitle("Error")
+                error.exec()
             left_border = ord(self.left_border_text_edit.toPlainText())
             right_border = ord(self.right_border_text_edit.toPlainText())
         else:
