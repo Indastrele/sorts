@@ -4,7 +4,7 @@ BNTU 2023
 """
 
 
-from View import interface  # import interface made with PySide6 (PyQt6)
+from View import interface # import interface made with PySide6 (PyQt6)
 from Model import (sorts, array_generator)  # logic of program
 from PySide6 import (QtWidgets)  # library for Qt6 in python
 import sys  # library for getting arguments of the command line
@@ -41,16 +41,23 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
         if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
             self.__array = array
         else:
+            self.__array = list()
             for i in range(0, size):
                 self.__array.append(chr(array[i]))
-        self.array_text_edit.setText(' '.join([str(i) for i in self.__array]))
+        self.array_text_edit.setText('')
+        self.__array_output()
 
     def __sort(self):
         if str(self.__array[0]).isdigit():
-            self.__array = sorts.merge_sort_nums(self.__array, 0, len(self.__array))
-            self.array_text_edit.setText(self.array_text_edit.toPlainText() + f"\n{self.__array}")
+            self.__array = sorts.merge_sort_nums(self.__array, 0, len(self.__array) - 1)
         else:
-            self.__array = sorts.merge_sort_strings(self.__array, 0, len(self.__array))
+            self.__array = sorts.merge_sort_strings(self.__array, 0, len(self.__array) - 1)
+        self.__array_output()
+
+    def __array_output(self):
+        if self.array_text_edit.toPlainText() != '':
+            self.array_text_edit.setText(self.array_text_edit.toPlainText() + '\n')
+        self.array_text_edit.setText(self.array_text_edit.toPlainText() + ' '.join([str(i) for i in self.__array]))
 
 
 def main():
