@@ -4,7 +4,7 @@ BNTU 2023
 """
 
 
-from View import interface # import interface made with PySide6 (PyQt6)
+from View import interface  # import interface made with PySide6 (PyQt6)
 from Model import (sorts, array_generator)  # logic of program
 from PySide6 import (QtWidgets)  # library for Qt6 in python
 import sys  # library for getting arguments of the command line
@@ -25,33 +25,44 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
             error = QtWidgets.QMessageBox()
             error.setText("No input")
             error.setWindowTitle("Error")
+            error.setIcon(QtWidgets.QMessageBox.Icon.Warning)
             error.exec()
             return
 
         if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
             left_border = int(self.left_border_text_edit.toPlainText())
             right_border = int(self.right_border_text_edit.toPlainText())
-        else:
+        elif self.left_border_text_edit.toPlainText().isalpha() or self.right_border_text_edit.toPlainText().isalpha():
             left_border = ord(self.left_border_text_edit.toPlainText())
             right_border = ord(self.right_border_text_edit.toPlainText())
+        else:
+            left_border = float(self.left_border_text_edit.toPlainText())
+            right_border = float(self.right_border_text_edit.toPlainText())
+
         size = 10
         if len(self.array_size_text_edit.toPlainText()) != 0:
             size = int(self.array_size_text_edit.toPlainText())
-        array = array_generator.generate(left_border, right_border, size)
-        if self.left_border_text_edit.toPlainText().isdigit() or self.right_border_text_edit.toPlainText().isdigit():
-            self.__array = array
+
+        if str(left_border).isdigit():
+            array = array_generator.generate(left_border, right_border, size)
         else:
+            array = array_generator.float_generate(left_border, right_border, size)
+
+        if self.left_border_text_edit.toPlainText().isalpha() or self.right_border_text_edit.toPlainText().isalpha():
             self.__array = list()
             for i in range(0, size):
                 self.__array.append(chr(array[i]))
+        else:
+            self.__array = array
+
         self.array_text_edit.setText('')
         self.__array_output()
 
     def __sort(self):
-        if str(self.__array[0]).isdigit():
-            self.__array = sorts.merge_sort_nums(self.__array, 0, len(self.__array) - 1)
-        else:
+        if str(self.__array[0]).isalpha():
             self.__array = sorts.merge_sort_strings(self.__array, 0, len(self.__array) - 1)
+        else:
+            self.__array = sorts.merge_sort_nums(self.__array, 0, len(self.__array) - 1)
         self.__array_output()
 
     def __array_output(self):
