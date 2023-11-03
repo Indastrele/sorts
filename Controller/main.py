@@ -38,9 +38,13 @@ class App(QtWidgets.QMainWindow, interface.Ui_main_window):
                 error.exec()
             left_border = ord(self.left_border_text_edit.toPlainText())
             right_border = ord(self.right_border_text_edit.toPlainText())
-        else:
+        elif not self.left_border_text_edit.toPlainText().isalpha()\
+                and not self.right_border_text_edit.toPlainText().isalpha():
             left_border = float(self.left_border_text_edit.toPlainText())
             right_border = float(self.right_border_text_edit.toPlainText())
+        else:
+            error.warning(error, "Сообщение об ошибке", "Данные должны быть одного типа", QtWidgets.QMessageBox.
+                          StandardButton.Close)
 
         size = 10
         if len(self.array_size_text_edit.toPlainText()) != 0:
