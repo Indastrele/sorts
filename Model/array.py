@@ -115,3 +115,15 @@ class Array:
 
     def get_size(self):
         return len(self.__array)
+
+    def get_array(self):
+        return self.__array
+
+    def set_array(self, arr):
+        self.__array = list()
+        for i in arr:
+            self.__array.append(i.strip("\n"))
+        if self.__array[0].isdigit():
+            self.__array = [int(i) for i in self.__array]
+        elif not self.__array[0].isalpha():
+            self.__array = [float(i) for i in self.__array]
