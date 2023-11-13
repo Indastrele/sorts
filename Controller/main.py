@@ -10,6 +10,25 @@ from PySide6 import (QtWidgets)  # library for Qt6 in python
 import sys  # library for getting arguments of the command line
 
 
+class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.__file = File()
+        self.__main_window = App()
+        self.open_file_button.clicked.connect(self.__open_file)
+        self.continue_button.clicked.connect(self.__app_exec)
+
+    def __app_exec(self):
+        self.__main_window.show()
+        self.close()
+
+    def __open_file(self):
+        self.__file.read_from()
+        self.__main_window.set_file(self.__file)
+        self.__app_exec()
+
+
 # App class
 class App(QtWidgets.QMainWindow, Ui_main_window):
     # constructor
@@ -49,7 +68,10 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.sorted_array_text_edit.setText(' '.join(self.__array.get_string()))
 
     def __open(self):  # open file and read array from it
-        arr = self.__file.read_from()
+        if self.__file.get_ref() == "":
+            arr = self.__file.read()
+        else:
+            arr = self.__file.read_file()
         if arr == "":
             return
         self.__array.set_array(arr)
@@ -58,10 +80,14 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
     def __save(self):  # write array to .txt file
         self.__file.write_to(self.__array.get_array())
 
+    def set_file(self, outer_file):
+        self.__file = outer_file
+        self.__open()
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = App()
+    window = StartWindow()
     window.show()
     app.exec()
 
