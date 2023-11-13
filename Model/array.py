@@ -18,6 +18,10 @@ class Array:
         error = QMessageBox()
         self.__array = list()
         size = 10
+        if len(left) == 0 or len(right) == 0:
+            error.warning(error, "Сообщение об ошибке", "Отсутствует ввод данных",
+                          QMessageBox.StandardButton.Close)
+            return
         if len(size_input) > 0:
             if size_input.isdigit():
                 size = int(size_input)
@@ -56,14 +60,14 @@ class Array:
             error.warning(error, "Сообщение об ошибке", "Данные должны быть одного типа", QMessageBox.
                           StandardButton.Close)
 
-    def __merge_sort_nums(self, left, right):
+    def __merge_sort_nums_ascending(self, left, right):
         if left >= right:
             return
 
         mid = int((left + right) / 2)
 
-        self.__merge_sort_nums(left, mid)
-        self.__merge_sort_nums(mid + 1, right)
+        self.__merge_sort_nums_ascending(left, mid)
+        self.__merge_sort_nums_ascending(mid + 1, right)
 
         i = left
         j = mid + 1
@@ -80,14 +84,14 @@ class Array:
             if self.__array[left + step] != tmp[step]:
                 self.__array[left + step] = tmp[step]
 
-    def __merge_sort_strings(self, left, right):
+    def __merge_sort_strings_ascending(self, left, right):
         if left >= right:
             return
 
         mid = int((left + right) / 2)
 
-        self.__merge_sort_strings(left, mid)
-        self.__merge_sort_strings(mid + 1, right)
+        self.__merge_sort_strings_ascending(left, mid)
+        self.__merge_sort_strings_ascending(mid + 1, right)
 
         i = left
         j = mid + 1
@@ -104,11 +108,65 @@ class Array:
             if self.__array[left + step].lower() != tmp[step].lower():
                 self.__array[left + step] = tmp[step]
 
-    def merge_sort(self, left, right):
-        if str(self.__array[0]).isalpha():
-            self.__merge_sort_strings(left, right)
-        else:
-            self.__merge_sort_nums(left, right)
+    def __merge_sort_nums_descending(self, left, right):
+        if left >= right:
+            return
+
+        mid = int((left + right) / 2)
+
+        self.__merge_sort_nums_descending(left, mid)
+        self.__merge_sort_nums_descending(mid + 1, right)
+
+        i = left
+        j = mid + 1
+        tmp = list()
+        for step in range(0, right - left + 1):
+            if j > right or (i < mid + 1 and self.__array[i] > self.__array[j]):
+                tmp.append(self.__array[i])
+                i += 1
+            else:
+                tmp.append(self.__array[j])
+                j += 1
+
+        for step in range(0, right - left + 1):
+            if self.__array[left + step] != tmp[step]:
+                self.__array[left + step] = tmp[step]
+
+    def __merge_sort_strings_descending(self, left, right):
+        if left >= right:
+            return
+
+        mid = int((left + right) / 2)
+
+        self.__merge_sort_strings_descending(left, mid)
+        self.__merge_sort_strings_descending(mid + 1, right)
+
+        i = left
+        j = mid + 1
+        tmp = list()
+        for step in range(0, right - left + 1):
+            if j > right or (i < mid + 1 and self.__array[i].lower() > self.__array[j].lower()):
+                tmp.append(self.__array[i])
+                i += 1
+            else:
+                tmp.append(self.__array[j])
+                j += 1
+
+        for step in range(0, right - left + 1):
+            if self.__array[left + step].lower() != tmp[step].lower():
+                self.__array[left + step] = tmp[step]
+
+    def merge_sort(self, left, right, asc, desc):
+        if asc:
+            if str(self.__array[0]).isalpha():
+                self.__merge_sort_strings_ascending(left, right)
+            else:
+                self.__merge_sort_nums_ascending(left, right)
+        elif desc:
+            if str(self.__array[0]).isalpha():
+                self.__merge_sort_strings_descending(left, right)
+            else:
+                self.__merge_sort_nums_descending(left, right)
 
     def get_string(self):
         return [str(i) for i in self.__array]

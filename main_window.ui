@@ -533,7 +533,7 @@ background-color: rgb(221, 171, 110);</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton">
+    <widget class="QRadioButton" name="descending_order">
      <property name="geometry">
       <rect>
        <x>10</x>
