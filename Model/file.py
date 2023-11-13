@@ -6,20 +6,15 @@ class File:
         self.__ref = str()
 
     def read(self):
-        self.read_from()
-        return self.read_file()
-
-    def read_from(self):
         self.__ref, ok = QtWidgets.QFileDialog.getOpenFileName(QtWidgets.QMainWindow(), "Open Directory", "",
                                                                "Text Files (*.txt)")
-
-    def read_file(self):
         try:
             with open(self.__ref, "r") as f:
                 return f.read().split()
         except FileNotFoundError:
             err = QtWidgets.QMessageBox()
-            err.warning(err, "Сообщение об ошибке", "Не удалось открыть файл", QtWidgets.QMessageBox.StandardButton.Close)
+            err.warning(err, "Сообщение об ошибке", "Не удалось открыть файл",
+                        QtWidgets.QMessageBox.StandardButton.Close)
             return ""
 
     @staticmethod

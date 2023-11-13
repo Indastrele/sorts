@@ -49,7 +49,7 @@ class Ui_greetings(object):
 
     def retranslateUi(self, greetings):
         _translate = QtCore.QCoreApplication.translate
-        greetings.setWindowTitle(_translate("greetings", "Dialog"))
+        greetings.setWindowTitle(_translate("greetings", "Добро пожаловать"))
         self.label.setText(_translate("greetings", "Добро пожаловать"))
         self.open_file_button.setText(_translate("greetings", "Открыть файл"))
         self.continue_button.setText(_translate("greetings", "Продолжить без файла"))

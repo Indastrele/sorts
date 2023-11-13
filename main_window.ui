@@ -613,6 +613,7 @@ color: rgb(108, 100, 185);</string>
     <property name="title">
      <string>Об авторе</string>
     </property>
+    <addaction name="open_about_action"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -662,6 +663,11 @@ color: rgb(108, 100, 185);</string>
      <family>Courier New</family>
      <pointsize>16</pointsize>
     </font>
+   </property>
+  </action>
+  <action name="open_about_action">
+   <property name="text">
+    <string>Об авторе</string>
    </property>
   </action>
  </widget>

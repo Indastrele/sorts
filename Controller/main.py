@@ -4,12 +4,13 @@ BNTU 2023
 """
 
 
-from View import (Ui_main_window, Ui_greetings)  # import interface made with PySide6 (PyQt6)
+from View import (Ui_main_window, Ui_greetings, Ui_about)  # import interface made with PySide6 (PyQt6)
 from Model import (Array, File)  # logic of program
 from PySide6 import (QtWidgets)  # library for Qt6 in python
 import sys  # library for getting arguments of the command line
 
 
+# Start window
 class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
     def __init__(self):
         super().__init__()
@@ -24,24 +25,24 @@ class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
         self.close()
 
     def __open_file(self):
-        self.__file.read_from()
-        self.__main_window.set_file(self.__file)
+        self.__main_window.open()
         self.__app_exec()
 
 
 # App class
 class App(QtWidgets.QMainWindow, Ui_main_window):
-    # constructor
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.__array = Array()
         self.__file = File()
+        self.__author = Author()
         self.sort_button.clicked.connect(self.__sort)
         self.generate_button.clicked.connect(self.__generated_array)
-        self.open_action.triggered.connect(self.__open)
+        self.open_action.triggered.connect(self.open)
         self.save_button.clicked.connect(self.__save)
         self.save_action.triggered.connect(self.__save)
+        self.open_about_action.triggered.connect(self.__open_about)
 
     def __generated_array(self):
         left = self.left_border_text_edit.toPlainText()
@@ -67,11 +68,8 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
             return
         self.sorted_array_text_edit.setText(' '.join(self.__array.get_string()))
 
-    def __open(self):  # open file and read array from it
-        if self.__file.get_ref() == "":
-            arr = self.__file.read()
-        else:
-            arr = self.__file.read_file()
+    def open(self):  # open file and read array from it
+        arr = self.__file.read()
         if arr == "":
             return
         self.__array.set_array(arr)
@@ -80,9 +78,14 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
     def __save(self):  # write array to .txt file
         self.__file.write_to(self.__array.get_array())
 
-    def set_file(self, outer_file):
-        self.__file = outer_file
-        self.__open()
+    def __open_about(self):
+        self.__author.show()
+
+
+class Author(QtWidgets.QDialog, Ui_about):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
 
 
 def main():
