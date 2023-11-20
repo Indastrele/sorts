@@ -14,14 +14,14 @@ class Ui_greetings(object):
         greetings.setObjectName("greetings")
         greetings.resize(640, 480)
         greetings.setAutoFillBackground(False)
-        greetings.setStyleSheet("background-color: rgb(208, 215, 105);")
+        greetings.setStyleSheet("background-color: rgb(153, 176, 128);")
         self.label = QtWidgets.QLabel(parent=greetings)
         self.label.setGeometry(QtCore.QRect(130, 80, 381, 41))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(40)
         self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(152, 139, 253);")
+        self.label.setStyleSheet("color: rgb(250, 248, 237);")
         self.label.setObjectName("label")
         self.open_file_button = QtWidgets.QPushButton(parent=greetings)
         self.open_file_button.setGeometry(QtCore.QRect(170, 210, 301, 71))
@@ -30,8 +30,8 @@ class Ui_greetings(object):
         font.setPointSize(24)
         self.open_file_button.setFont(font)
         self.open_file_button.setAutoFillBackground(False)
-        self.open_file_button.setStyleSheet("color: rgb(152, 139, 253);\n"
-"background-color: rgb(255, 193, 116);")
+        self.open_file_button.setStyleSheet("color: rgb(250, 248, 237);\n"
+"background-color: rgb(249, 181, 114);")
         self.open_file_button.setObjectName("open_file_button")
         self.continue_button = QtWidgets.QPushButton(parent=greetings)
         self.continue_button.setGeometry(QtCore.QRect(170, 320, 301, 71))
@@ -40,8 +40,8 @@ class Ui_greetings(object):
         font.setPointSize(24)
         self.continue_button.setFont(font)
         self.continue_button.setAutoFillBackground(False)
-        self.continue_button.setStyleSheet("color: rgb(152, 139, 253);\n"
-"background-color: rgb(255, 193, 116);")
+        self.continue_button.setStyleSheet("color: rgb(250, 248, 237);\n"
+"background-color: rgb(249, 181, 114);")
         self.continue_button.setObjectName("continue_button")
 
         self.retranslateUi(greetings)
@@ -49,7 +49,7 @@ class Ui_greetings(object):
 
     def retranslateUi(self, greetings):
         _translate = QtCore.QCoreApplication.translate
-        greetings.setWindowTitle(_translate("greetings", "Добро пожаловать"))
+        greetings.setWindowTitle(_translate("greetings", "Сортировки"))
         self.label.setText(_translate("greetings", "Добро пожаловать"))
         self.open_file_button.setText(_translate("greetings", "Открыть файл"))
         self.continue_button.setText(_translate("greetings", "Продолжить без файла"))

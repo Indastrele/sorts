@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(208, 215, 105);</string>
+   <string notr="true">background-color: rgb(153, 176, 128);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -35,7 +35,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(152, 139, 253);</string>
+    <string notr="true">color: rgb(250, 248, 237);</string>
    </property>
    <property name="text">
     <string>Добро пожаловать</string>
@@ -60,8 +60,8 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(152, 139, 253);
-background-color: rgb(255, 193, 116);</string>
+    <string notr="true">color: rgb(250, 248, 237);
+background-color: rgb(249, 181, 114);</string>
    </property>
    <property name="text">
     <string>Открыть файл</string>
@@ -86,8 +86,8 @@ background-color: rgb(255, 193, 116);</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(152, 139, 253);
-background-color: rgb(255, 193, 116);</string>
+    <string notr="true">color: rgb(250, 248, 237);
+background-color: rgb(249, 181, 114);</string>
    </property>
    <property name="text">
     <string>Продолжить без файла</string>

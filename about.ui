@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>411</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="font">
@@ -20,10 +20,10 @@
    <string>Dialog</string>
   </property>
   <property name="autoFillBackground">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(208, 215, 105);</string>
+   <string notr="true">background-color: rgb(153, 176, 128);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -60,7 +60,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(153, 140, 255);</string>
+    <string notr="true">color: rrgb(250, 248, 237);</string>
    </property>
    <property name="text">
     <string>Юдин Станислав Васильевич</string>
@@ -82,7 +82,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(153, 140, 255);</string>
+    <string notr="true">color: rrgb(250, 248, 237);</string>
    </property>
    <property name="text">
     <string>Студент БНТУ</string>
@@ -104,10 +104,48 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(153, 140, 255);</string>
+    <string notr="true">color: rrgb(250, 248, 237);</string>
    </property>
    <property name="text">
     <string>Группа 10701322</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>391</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Courier New</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Курсовой проект по предмету</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>320</y>
+     <width>351</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Courier New</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>&quot;Языки программирования&quot;</string>
    </property>
   </widget>
  </widget>
