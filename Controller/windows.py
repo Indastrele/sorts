@@ -55,11 +55,9 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         if self.merge_sort_radiobutton.isChecked():
             self.__array.merge_sort(left, right, self.ascending_order.isChecked(), self.descending_order.isChecked())
         elif self.heap_sort_radiobutton.isChecked():
-            err.warning(err, "Здесь пока пусто", "Разработчик собирается добавить сюда функционал",
-                        QtWidgets.QMessageBox.StandardButton.Close, QtWidgets.QMessageBox.StandardButton.Close)
-            return
+            self.__array.heap_sort(self.ascending_order.isChecked(), self.descending_order.isChecked())
         self.sorted_array_text_edit.setText(' '.join(self.__array.get_string()))
-        self.speed_text_edit.setText(str(self.__array.get_sort_time()))
+        self.speed_text_edit.setText(f"{self.__array.get_sort_time():.6f} sec")
 
     def open(self):  # open file and read array from it
         arr = self.__file.read()

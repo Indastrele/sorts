@@ -170,6 +170,102 @@ class Array:
                 self.__merge_sort_nums_descending(left, right)
         self.__sort_time = time.time() - self.__sort_time
 
+    def heap_sort(self, asc, desc):
+        self.__sort_time = time.time()
+        for i in range(self.get_size() // 2 - 1, -1, -1):
+            if asc:
+                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                    self.__heap_sort_strings_ascending(i, self.get_size())
+
+                else:
+                    self.__heap_sort_nums_ascending(i, self.get_size())
+            elif desc:
+                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                    self.__heap_sort_strings_descending(i, self.get_size())
+                else:
+                    self.__heap_sort_nums_descending(i, self.get_size())
+
+        if asc:
+            for i in range(self.get_size() - 1, 0, -1):
+                self.__array[i], self.__array[0] = self.__array[0], self.__array[i]
+                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                    self.__heap_sort_strings_ascending(0, i)
+
+                else:
+                    self.__heap_sort_nums_ascending(0, i)
+        elif desc:
+            for i in range(self.get_size() - 1, -1, -1):
+                self.__array[i], self.__array[0] = self.__array[0], self.__array[i]
+                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                    self.__heap_sort_strings_descending(0, i)
+                else:
+                    self.__heap_sort_nums_descending(0, i)
+        self.__sort_time = time.time() - self.__sort_time
+
+    def __heap_sort_strings_ascending(self, i, size):
+        largest_child = i
+        left_child = 2 * i + 1
+        right_child = 2 * i + 2
+
+        if left_child < size and self.__array[largest_child].lower() < self.__array[left_child].lower():
+            largest_child = left_child
+
+        if right_child < size and self.__array[largest_child].lower() < self.__array[right_child].lower():
+            largest_child = right_child
+
+        if largest_child != i:
+            self.__array[i], self.__array[largest_child] = self.__array[largest_child], self.__array[i]
+
+            self.__heap_sort_strings_ascending(largest_child, size)
+
+    def __heap_sort_nums_ascending(self, i, size):
+        largest_child = i
+        left_child = 2 * i + 1
+        right_child = 2 * i + 2
+
+        if left_child < size and self.__array[largest_child] < self.__array[left_child]:
+            largest_child = left_child
+
+        if right_child < size and self.__array[largest_child] < self.__array[right_child]:
+            largest_child = right_child
+
+        if largest_child != i:
+            self.__array[i], self.__array[largest_child] = self.__array[largest_child], self.__array[i]
+
+            self.__heap_sort_nums_ascending(largest_child, size)
+
+    def __heap_sort_strings_descending(self, i, size):
+        smallest_child = i
+        left_child = 2 * i + 1
+        right_child = 2 * i + 2
+
+        if left_child < size and self.__array[smallest_child].lower() > self.__array[left_child].lower():
+            smallest_child = left_child
+
+        if right_child < size and self.__array[smallest_child].lower() > self.__array[right_child].lower():
+            smallest_child = right_child
+
+        if smallest_child != i:
+            self.__array[i], self.__array[smallest_child] = self.__array[smallest_child], self.__array[i]
+
+            self.__heap_sort_strings_ascending(smallest_child, size)
+
+    def __heap_sort_nums_descending(self, i, size):
+        smallest_child = i
+        left_child = 2 * i + 1
+        right_child = 2 * i + 2
+
+        if left_child < size and self.__array[smallest_child] > self.__array[left_child]:
+            smallest_child = left_child
+
+        if right_child < size and self.__array[smallest_child] > self.__array[right_child]:
+            smallest_child = right_child
+
+        if smallest_child != i:
+            self.__array[i], self.__array[smallest_child] = self.__array[smallest_child], self.__array[i]
+
+            self.__heap_sort_nums_ascending(smallest_child, size)
+
     def get_string(self):
         return [str(i) for i in self.__array]
 
