@@ -266,6 +266,24 @@ class Array:
 
             self.__heap_sort_nums_ascending(smallest_child, size)
 
+    def compare(self):
+        self.generate("0", "100", "100")
+        array_copy = self.__array
+        time_data = list()
+        self.merge_sort(0, self.get_size() - 1, True, False)
+        time_data.append(self.get_sort_time())
+        self.__array = array_copy
+        self.merge_sort(0, self.get_size() - 1, False, True)
+        time_data.append(self.get_sort_time())
+        self.__array = array_copy
+        self.heap_sort(True, False)
+        time_data.append(self.get_sort_time())
+        self.__array = array_copy
+        self.heap_sort(False, True)
+        time_data.append(self.get_sort_time())
+        self.__array = array_copy
+        return time_data
+
     def get_string(self):
         return [str(i) for i in self.__array]
 
@@ -278,7 +296,7 @@ class Array:
     def set_array(self, arr):
         self.__array = list()
         for i in arr:
-            self.__array.append(i.strip("\n"))
+            self.__array.append(str(i).strip("\n"))
         if self.__array[0].isdigit():
             self.__array = [int(i) for i in self.__array]
         elif not self.__array[0].isalpha():
@@ -286,3 +304,6 @@ class Array:
 
     def get_sort_time(self):
         return self.__sort_time
+
+    def is_empty(self):
+        return self.get_size() == 0

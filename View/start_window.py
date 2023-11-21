@@ -27,7 +27,7 @@ class Ui_greetings(object):
         self.open_file_button.setGeometry(QtCore.QRect(170, 210, 301, 71))
         font = QtGui.QFont()
         font.setFamily("Courier New")
-        font.setPointSize(24)
+        font.setPointSize(20)
         self.open_file_button.setFont(font)
         self.open_file_button.setAutoFillBackground(False)
         self.open_file_button.setStyleSheet("color: rgb(250, 248, 237);\n"
@@ -37,12 +37,22 @@ class Ui_greetings(object):
         self.continue_button.setGeometry(QtCore.QRect(170, 320, 301, 71))
         font = QtGui.QFont()
         font.setFamily("Courier New")
-        font.setPointSize(24)
+        font.setPointSize(20)
         self.continue_button.setFont(font)
         self.continue_button.setAutoFillBackground(False)
         self.continue_button.setStyleSheet("color: rgb(250, 248, 237);\n"
 "background-color: rgb(249, 181, 114);")
         self.continue_button.setObjectName("continue_button")
+        self.about_button = QtWidgets.QPushButton(parent=greetings)
+        self.about_button.setGeometry(QtCore.QRect(250, 420, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Courier New")
+        font.setPointSize(16)
+        self.about_button.setFont(font)
+        self.about_button.setAutoFillBackground(False)
+        self.about_button.setStyleSheet("color: rgb(250, 248, 237);\n"
+"background-color: rgb(249, 181, 114);")
+        self.about_button.setObjectName("about_button")
 
         self.retranslateUi(greetings)
         QtCore.QMetaObject.connectSlotsByName(greetings)
@@ -53,3 +63,4 @@ class Ui_greetings(object):
         self.label.setText(_translate("greetings", "Добро пожаловать"))
         self.open_file_button.setText(_translate("greetings", "Открыть файл"))
         self.continue_button.setText(_translate("greetings", "Продолжить без файла"))
+        self.about_button.setText(_translate("greetings", "Об авторе"))

@@ -10,9 +10,9 @@ from PySide6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_main_window(object):
-    def setupUi(self, main_window):
+    def _setupUi(self, main_window):
         main_window.setObjectName("main_window")
-        main_window.resize(652, 571)
+        main_window.resize(652, 578)
         font = QtGui.QFont()
         font.setFamily("Courier New")
         main_window.setFont(font)
@@ -191,7 +191,7 @@ class Ui_main_window(object):
 "background-color: rgb(216, 162, 108);")
         self.descending_order.setObjectName("descending_order")
         self.save_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.save_button.setGeometry(QtCore.QRect(420, 460, 161, 32))
+        self.save_button.setGeometry(QtCore.QRect(420, 450, 161, 32))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
@@ -209,7 +209,6 @@ class Ui_main_window(object):
         self.left_border_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
 "color: rgb(250, 248, 237);")
         self.left_border_line_edit.setObjectName("left_border_line_edit")
-        self.left_border_line_edit.setText("0")
         self.right_border_line_edit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.right_border_line_edit.setGeometry(QtCore.QRect(280, 40, 91, 31))
         font = QtGui.QFont()
@@ -220,7 +219,6 @@ class Ui_main_window(object):
         self.right_border_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
 "color: rgb(250, 248, 237);")
         self.right_border_line_edit.setObjectName("right_border_line_edit")
-        self.right_border_line_edit.setText("100")
         self.size_line_edit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.size_line_edit.setGeometry(QtCore.QRect(470, 40, 91, 31))
         font = QtGui.QFont()
@@ -231,7 +229,15 @@ class Ui_main_window(object):
         self.size_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
 "color: rgb(250, 248, 237);")
         self.size_line_edit.setObjectName("size_line_edit")
-        self.size_line_edit.setText("10")
+        self.compare_button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.compare_button.setGeometry(QtCore.QRect(420, 490, 161, 32))
+        font = QtGui.QFont()
+        font.setFamily("Courier New")
+        font.setPointSize(20)
+        self.compare_button.setFont(font)
+        self.compare_button.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+"color: rgb(250, 248, 237);")
+        self.compare_button.setObjectName("compare_button")
         main_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=main_window)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 652, 24))
@@ -303,6 +309,10 @@ class Ui_main_window(object):
         self.ascending_order.setText(_translate("main_window", "По возрастанию"))
         self.descending_order.setText(_translate("main_window", "По убыванию"))
         self.save_button.setText(_translate("main_window", "Сохранить"))
+        self.left_border_line_edit.setText("0")
+        self.right_border_line_edit.setText("100")
+        self.size_line_edit.setText("10")
+        self.compare_button.setText(_translate("main_window", "Сравнить"))
         self.about_author.setTitle(_translate("main_window", "Об авторе"))
         self.menu_3.setTitle(_translate("main_window", "Файл"))
         self.help.setText(_translate("main_window", "Таблица символов"))

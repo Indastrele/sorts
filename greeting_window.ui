@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Сортировки</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -53,7 +53,7 @@
    <property name="font">
     <font>
      <family>Courier New</family>
-     <pointsize>24</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -79,7 +79,7 @@ background-color: rgb(249, 181, 114);</string>
    <property name="font">
     <font>
      <family>Courier New</family>
-     <pointsize>24</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -91,6 +91,32 @@ background-color: rgb(249, 181, 114);</string>
    </property>
    <property name="text">
     <string>Продолжить без файла</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="about_button">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>420</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Courier New</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(250, 248, 237);
+background-color: rgb(249, 181, 114);</string>
+   </property>
+   <property name="text">
+    <string>Об авторе</string>
    </property>
   </widget>
  </widget>
