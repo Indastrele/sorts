@@ -65,6 +65,7 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.sorted_array_text_edit.setText(' '.join(self.__array.get_string()))
         self.speed_text_edit.setText(f"{self.__array.get_sort_time():.6f} sec")
 
+    # comparison between merge sort and heap sort with same array
     def __compare(self):
         temporary_array = list()
         array_is_empty = self.__array.is_empty()

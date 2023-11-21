@@ -46,12 +46,13 @@ class Array:
                 tmp_array.append(chr(i))
 
             self.__array = tmp_array
-        elif left.isdigit() and right.isdigit():
+        elif (left.isdigit() or left[0] == "-" and left[1:].isdigit())\
+                and (right.isdigit() or right[0] == "-" and right[1:].isdigit()):
             left = int(left)
             right = int(right)
 
             self.__generator(left, right, size)
-        elif not left.isalpha() and not right.isalpha():
+        elif not left.isalpha() and not right.isalpha() and ("." in left or "." in right):
             left = float(left)
             right = float(right)
 
@@ -159,12 +160,16 @@ class Array:
     def merge_sort(self, left, right, asc, desc):
         self.__sort_time = time.time()
         if asc:
-            if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+            if str(self.__array[0]).isalpha() or \
+                    (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                     and "." not in str(self.__array[0])):
                 self.__merge_sort_strings_ascending(left, right)
             else:
                 self.__merge_sort_nums_ascending(left, right)
         elif desc:
-            if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+            if str(self.__array[0]).isalpha() or \
+                    (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                     and "." not in str(self.__array[0])):
                 self.__merge_sort_strings_descending(left, right)
             else:
                 self.__merge_sort_nums_descending(left, right)
@@ -174,13 +179,17 @@ class Array:
         self.__sort_time = time.time()
         for i in range(self.get_size() // 2 - 1, -1, -1):
             if asc:
-                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                if str(self.__array[0]).isalpha() or\
+                        (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                         and "." not in str(self.__array[0])):
                     self.__heap_sort_strings_ascending(i, self.get_size())
 
                 else:
                     self.__heap_sort_nums_ascending(i, self.get_size())
             elif desc:
-                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                if str(self.__array[0]).isalpha() or \
+                        (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                         and "." not in str(self.__array[0])):
                     self.__heap_sort_strings_descending(i, self.get_size())
                 else:
                     self.__heap_sort_nums_descending(i, self.get_size())
@@ -188,7 +197,9 @@ class Array:
         if asc:
             for i in range(self.get_size() - 1, 0, -1):
                 self.__array[i], self.__array[0] = self.__array[0], self.__array[i]
-                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                if str(self.__array[0]).isalpha() or \
+                        (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                         and "." not in str(self.__array[0])):
                     self.__heap_sort_strings_ascending(0, i)
 
                 else:
@@ -196,7 +207,9 @@ class Array:
         elif desc:
             for i in range(self.get_size() - 1, -1, -1):
                 self.__array[i], self.__array[0] = self.__array[0], self.__array[i]
-                if str(self.__array[0]).isalpha() or not str(self.__array[0]).isdigit():
+                if str(self.__array[0]).isalpha() or \
+                        (not str(self.__array[0]).isdigit() and "-" not in str(self.__array[0])
+                         and "." not in str(self.__array[0])):
                     self.__heap_sort_strings_descending(0, i)
                 else:
                     self.__heap_sort_nums_descending(0, i)
@@ -266,6 +279,7 @@ class Array:
 
             self.__heap_sort_nums_ascending(smallest_child, size)
 
+    # comparison between two sorts with same array using ascending and descending orders
     def compare(self):
         self.generate("0", "100", "100")
         array_copy = self.__array
@@ -297,9 +311,10 @@ class Array:
         self.__array = list()
         for i in arr:
             self.__array.append(str(i).strip("\n"))
-        if self.__array[0].isdigit():
+        if self.__array[0].isdigit() or self.__array[0][0] == "-" and self.__array[0][1:].isdigit():
             self.__array = [int(i) for i in self.__array]
-        elif not self.__array[0].isalpha():
+        elif not self.__array[0].isalpha() and "." in self.__array[0] or\
+                not self.__array[0].isalpha() and "." in self.__array[0] and self.__array[0][0] == "-":
             self.__array = [float(i) for i in self.__array]
 
     def get_sort_time(self):
