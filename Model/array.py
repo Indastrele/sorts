@@ -284,18 +284,31 @@ class Array:
         self.generate("0", "100", "100")
         array_copy = self.__array
         time_data = list()
-        self.merge_sort(0, self.get_size() - 1, True, False)
-        time_data.append(self.get_sort_time())
-        self.__array = array_copy
-        self.merge_sort(0, self.get_size() - 1, False, True)
-        time_data.append(self.get_sort_time())
-        self.__array = array_copy
-        self.heap_sort(True, False)
-        time_data.append(self.get_sort_time())
-        self.__array = array_copy
-        self.heap_sort(False, True)
-        time_data.append(self.get_sort_time())
-        self.__array = array_copy
+        attempts = 10
+        test_time = 0.
+        for _ in range(0, attempts):
+            self.merge_sort(0, self.get_size() - 1, True, False)
+            test_time += self.get_sort_time()
+            self.__array = array_copy
+        time_data.append(test_time / attempts)
+        test_time = 0.
+        for _ in range(0, attempts):
+            self.merge_sort(0, self.get_size() - 1, False, True)
+            test_time += self.get_sort_time()
+            self.__array = array_copy
+        time_data.append(test_time / attempts)
+        test_time = 0.
+        for _ in range(0, attempts):
+            self.heap_sort(True, False)
+            test_time += self.get_sort_time()
+            self.__array = array_copy
+        time_data.append(test_time / attempts)
+        test_time = 0.
+        for _ in range(0, attempts):
+            self.heap_sort(False, True)
+            test_time += self.get_sort_time()
+            self.__array = array_copy
+        time_data.append(test_time / attempts)
         return time_data
 
     def get_string(self):

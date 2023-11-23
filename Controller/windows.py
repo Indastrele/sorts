@@ -73,10 +73,10 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
             temporary_array = self.__array.get_array()
         time = self.__array.compare()
         result = QtWidgets.QMessageBox()
-        result.information(self, "Результаты", f"Сортировка слиянием (по возрастанию){time[0]:.6f}\n" +
-                           f"Сортировка слиянием (по убыванию){time[1]:.6f}\n" +
-                           f"Пирамидальная сортировка (по возрастанию){time[2]:.6f}\n" +
-                           f"Пирамидальная сортировка (по убыванию){time[3]:.6f}",
+        result.information(self, "Результаты", f"Сортировка слиянием:\nПо возрастанию {time[0]:.6f} с\n" +
+                           f"По убыванию {time[1]:.6f} с\n\n" +
+                           f"Пирамидальная сортировка\nПо возрастанию {time[2]:.6f} с\n" +
+                           f"По убыванию {time[3]:.6f} с",
                            QtWidgets.QMessageBox.StandardButton.Close
                            )
         if not array_is_empty:

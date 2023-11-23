@@ -1,4 +1,5 @@
 from PySide6 import QtWidgets
+import docx2txt
 
 
 class File:
@@ -7,15 +8,18 @@ class File:
 
     def read(self):
         self.__ref, ok = QtWidgets.QFileDialog.getOpenFileName(QtWidgets.QMainWindow(), "Open Directory", "",
-                                                               "Text Files (*.txt)")
-        try:
-            with open(self.__ref, "r") as f:
-                return f.read().split()
-        except FileNotFoundError:
-            err = QtWidgets.QMessageBox()
-            err.warning(err, "Сообщение об ошибке", "Не удалось открыть файл",
-                        QtWidgets.QMessageBox.StandardButton.Close)
-            return ""
+                                                               "Text Files (*.txt *.docx)")
+        if self.__ref[-4:] == ".txt":
+            try:
+                with open(self.__ref, "r") as f:
+                    return f.read().split()
+            except FileNotFoundError:
+                err = QtWidgets.QMessageBox()
+                err.warning(err, "Сообщение об ошибке", "Не удалось открыть файл",
+                            QtWidgets.QMessageBox.StandardButton.Close)
+                return ""
+        elif self.__ref[-5:] == ".docx":
+            return docx2txt.process(self.__ref).split()
 
     @staticmethod
     def write_to(arr):
