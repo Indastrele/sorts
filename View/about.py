@@ -29,7 +29,7 @@ class Ui_about(object):
         self.label_17.setMinimumSize(QtCore.QSize(180, 180))
         self.label_17.setMaximumSize(QtCore.QSize(180, 180))
         self.label_17.setText("")
-        self.label_17.setPixmap(QtGui.QPixmap("../../../../Рандом файлы/Языки программирования/курсач/sorts/View/photo_2023-11-13 11.38.56.jpeg"))
+        self.label_17.setPixmap(QtGui.QPixmap("View/photo_2023-11-13 11.38.56.jpeg"))
         self.label_17.setScaledContents(True)
         self.label_17.setObjectName("label_17")
         self.horizontalLayout_3.addWidget(self.label_17)

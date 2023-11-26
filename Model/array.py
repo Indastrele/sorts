@@ -1,6 +1,5 @@
 import random
 import time
-from PySide6.QtWidgets import QMessageBox
 
 
 class Array:
@@ -8,6 +7,7 @@ class Array:
         self.__array = list()
         self.__sort_time = float()
 
+    # generate method for int and str
     def __generator(self, left_border, right_border, size):
         for i in range(0, size):
             self.__array.append(random.randint(left_border, right_border))
@@ -16,26 +16,22 @@ class Array:
         for i in range(0, size):
             self.__array.append(round(random.uniform(left_border, right_border), 3))
 
+    # method for generating array with some preferences
     def generate(self, left, right, size_input):
-        error = QMessageBox()
         self.__array = list()
+        # check input in all line edits in program
         if len(left) == 0 or len(right) == 0 or len(size_input) == 0:
-            error.warning(error, "Сообщение об ошибке", "Отсутствует ввод данных",
-                          QMessageBox.StandardButton.Close)
-            return
+            return "Сообщение об ошибке", "Отсутствует ввод данных"
+        # check size input to be an integer
         if size_input.isdigit():
             size = int(size_input)
         else:
-            error.warning(error, "Сообщение об ошибке", "Размер должен быть целым числом",
-                          QMessageBox.StandardButton.Close)
-            return
+            return"Сообщение об ошибке", "Размер должен быть целым числом"
 
+        # check borders input to be char
         if left.isalpha() and right.isalpha():
             if len(left) > 1 or len(right) > 1:
-                error.setText("Input is string, not char.")
-                error.setWindowTitle("Error")
-                error.exec()
-                return
+                return "Error", "Input is string, not char."
 
             left = ord(left)
             right = ord(right)
@@ -58,8 +54,8 @@ class Array:
 
             self.__float_generator(left, right, size)
         else:
-            error.warning(error, "Сообщение об ошибке", "Данные должны быть одного типа", QMessageBox.
-                          StandardButton.Close)
+            return "Сообщение об ошибке", "Данные должны быть одного типа"
+        return 'Ok'
 
     def __merge_sort_nums_ascending(self, left, right):
         if left >= right:
@@ -157,6 +153,8 @@ class Array:
             if self.__array[left + step].lower() != tmp[step].lower():
                 self.__array[left + step] = tmp[step]
 
+    # main merge sort method
+    # there are some checks for the right type of sort
     def merge_sort(self, left, right, asc, desc):
         self.__sort_time = time.time()
         if asc:
@@ -175,6 +173,8 @@ class Array:
                 self.__merge_sort_nums_descending(left, right)
         self.__sort_time = time.time() - self.__sort_time
 
+    # main heap sort method
+    # there are some checks for the right type of sort
     def heap_sort(self, asc, desc):
         self.__sort_time = time.time()
         for i in range(self.get_size() // 2 - 1, -1, -1):
@@ -320,15 +320,33 @@ class Array:
     def get_array(self):
         return self.__array
 
+    # converting file input in array
     def set_array(self, arr):
         self.__array = list()
         for i in arr:
             self.__array.append(str(i).strip("\n"))
-        if self.__array[0].isdigit() or self.__array[0][0] == "-" and self.__array[0][1:].isdigit():
+        if self.check_array() == 'int':
             self.__array = [int(i) for i in self.__array]
-        elif not self.__array[0].isalpha() and "." in self.__array[0] or\
-                not self.__array[0].isalpha() and "." in self.__array[0] and self.__array[0][0] == "-":
+        elif self.check_array() == 'float':
             self.__array = [float(i) for i in self.__array]
+
+    # check array elements type
+    def check_array(self):
+        is_int = False
+        is_float = False
+        for i in self.__array:
+            if i.isdigit() or i[0] == "-" and i[1:].isdigit():
+                is_int = True
+            elif not i.isalpha() and "." in i or \
+                    not i.isalpha() and "." in i and i[0] == "-":
+                is_float = True
+
+        if is_int and is_float or is_float and not is_int:
+            return 'float'
+        elif is_int and not is_float:
+            return 'int'
+        else:
+            return 'str'
 
     def get_sort_time(self):
         return self.__sort_time

@@ -4,7 +4,7 @@ BNTU 2023
 """
 
 
-from windows import (StartWindow)  # import interface made with PySide6 (PyQt6)
+from windows import (StartWindow)  # import interfaces made with PySide6 (PyQt6)
 from PySide6 import (QtWidgets)  # library for Qt6 in python
 import sys  # library for getting arguments of the command line
 
