@@ -1,5 +1,5 @@
 from PySide6 import (QtWidgets, QtCore)
-from View import (Ui_greetings, Ui_about, Ui_main_window)
+from View import (Ui_greetings, Ui_about, Ui_main_window, Ui_author)
 from Model import (Array, File)
 
 
@@ -13,10 +13,12 @@ class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
         self.__file = File()
         self.__main_window = App()
         self.__about = Author()
-        self.__about.show()
+        self.__program = Program()
+        self.__program.show()
         self.open_file_button.clicked.connect(self.__open_file)
         self.continue_button.clicked.connect(self.__app_exec)
-        self.about_button.clicked.connect(self.__open_about)
+        self.about_button.clicked.connect(self.__open_author)
+        self.program_button.clicked.connect(self.__open_about)
 
     def __app_exec(self):
         self.__main_window.show()
@@ -31,9 +33,15 @@ class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
 
     def __open_about(self):
         self.__timer.start(60000)  # restart timer to close the window
+        self.__program.show()
+
+    def __open_author(self):
+        self.__timer.start(60000)  # restart timer to close the window
         self.__about.show()
 
     def __close_all(self):
+        if self.__program.isEnabled():
+            self.__program.close()
         if self.__about.isEnabled():
             self.__about.close()
         self.close()
@@ -47,6 +55,7 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.__array = Array()
         self.__file = File()
         self.__author = Author()
+        self.__program = Program()
         self.__error_message = QtWidgets.QMessageBox()
         self.sort_button.clicked.connect(self.__sort)
         self.generate_button.clicked.connect(self.__generate_array)
@@ -55,6 +64,7 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.save_action.triggered.connect(self.__save)
         self.open_about_action.triggered.connect(self.__open_about)
         self.compare_button.clicked.connect(self.__compare)
+        self.author_action.triggered.connect(self.__open_author)
 
     def __generate_array(self):
         left = self.left_border_line_edit.text()
@@ -112,6 +122,9 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.__file.write_to(self.__array.get_array())
 
     def __open_about(self):
+        self.__program.show()
+
+    def __open_author(self):
         self.__author.show()
 
     def __error(self, name, message):
@@ -119,9 +132,19 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
                                      QtWidgets.QMessageBox.StandardButton.Close)
 
 
-class Author(QtWidgets.QDialog, Ui_about):
+class Program(QtWidgets.QDialog, Ui_about):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.setWindowFlag(QtWidgets.QDialog.windowFlags(self).WindowStaysOnTopHint)
         self.setWindowModality(QtWidgets.QDialog.windowModality(self).ApplicationModal)
+        self.close_button.clicked.connect(self.close)
+
+
+class Author(QtWidgets.QDialog, Ui_author):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowFlag(QtWidgets.QDialog.windowFlags(self).WindowStaysOnTopHint)
+        self.setWindowModality(QtWidgets.QDialog.windowModality(self).ApplicationModal)
+        self.close_button.clicked.connect(self.close)

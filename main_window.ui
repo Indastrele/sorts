@@ -622,9 +622,10 @@ background-color: rgb(114, 130, 97);</string>
      </font>
     </property>
     <property name="title">
-     <string>Об авторе</string>
+     <string>О программе</string>
     </property>
     <addaction name="open_about_action"/>
+    <addaction name="author_action"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -672,12 +673,17 @@ background-color: rgb(114, 130, 97);</string>
   </action>
   <action name="open_about_action">
    <property name="text">
-    <string>Об авторе</string>
+    <string>О программе</string>
    </property>
   </action>
   <action name="help_action">
    <property name="text">
     <string>Справка</string>
+   </property>
+  </action>
+  <action name="author_action">
+   <property name="text">
+    <string>Об авторе</string>
    </property>
   </action>
  </widget>
