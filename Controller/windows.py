@@ -14,11 +14,11 @@ class StartWindow(QtWidgets.QMainWindow, Ui_greetings):
         self.__main_window = App()
         self.__about = Author()
         self.__program = Program()
-        self.__program.show()
         self.open_file_button.clicked.connect(self.__open_file)
         self.continue_button.clicked.connect(self.__app_exec)
         self.about_button.clicked.connect(self.__open_author)
         self.program_button.clicked.connect(self.__open_about)
+        self.exit_button.clicked.connect(self.close)
 
     def __app_exec(self):
         self.__main_window.show()
@@ -65,6 +65,7 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.open_about_action.triggered.connect(self.__open_about)
         self.compare_button.clicked.connect(self.__compare)
         self.author_action.triggered.connect(self.__open_author)
+        self.clear_button.clicked.connect(self.__clear)
 
     def __generate_array(self):
         left = self.left_border_line_edit.text()
@@ -117,6 +118,11 @@ class App(QtWidgets.QMainWindow, Ui_main_window):
         self.__array.set_array(arr)
         self.unsorted_array_text_edit.setText(' '.join(self.__array.get_string()))
         return "Ok"
+
+    def __clear(self):
+        self.unsorted_array_text_edit.setText("")
+        self.sorted_array_text_edit.setText("")
+        self.speed_text_edit.setText("")
 
     def __save(self):  # write array to .txt file
         self.__file.write_to(self.__array.get_array())

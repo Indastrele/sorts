@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>652</width>
-    <height>578</height>
+    <height>608</height>
    </rect>
   </property>
   <property name="font">
@@ -22,7 +22,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(153, 176, 128);</string>
+   <string notr="true">background-color: rgb(155, 171, 184);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="generate_label">
@@ -132,7 +132,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
@@ -145,7 +145,7 @@ color: rgb(250, 248, 237);</string>
       <x>20</x>
       <y>170</y>
       <width>341</width>
-      <height>101</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -155,7 +155,7 @@ color: rgb(250, 248, 237);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="frameShape">
@@ -175,9 +175,9 @@ color: rgb(250, 248, 237);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>320</y>
+      <y>360</y>
       <width>341</width>
-      <height>101</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="font">
@@ -187,7 +187,7 @@ color: rgb(250, 248, 237);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="frameShape">
@@ -222,7 +222,7 @@ color: rgb(250, 248, 237);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="title">
@@ -248,7 +248,7 @@ color: rgb(250, 248, 237);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(250, 248, 237);
-background-color: rgb(216, 162, 108);</string>
+background-color: rgb(137, 118, 111);</string>
      </property>
      <property name="text">
       <string>Слиянием</string>
@@ -277,7 +277,7 @@ background-color: rgb(216, 162, 108);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(250, 248, 237);
-background-color: rgb(216, 162, 108);</string>
+background-color: rgb(137, 118, 111);</string>
      </property>
      <property name="text">
       <string>Пирамидальная</string>
@@ -310,7 +310,7 @@ background-color: rgb(216, 162, 108);</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>290</y>
+      <y>330</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -332,7 +332,7 @@ background-color: rgb(216, 162, 108);</string>
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>410</y>
+      <y>440</y>
       <width>161</width>
       <height>32</height>
      </rect>
@@ -347,20 +347,20 @@ background-color: rgb(216, 162, 108);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
-     <string>Отсортировать</string>
+     <string>Сортировка</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="speed_text_edit">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>440</y>
+      <y>510</y>
       <width>341</width>
-      <height>71</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -373,7 +373,7 @@ color: rgb(250, 248, 237);</string>
      <bool>true</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="frameShape">
@@ -393,7 +393,7 @@ color: rgb(250, 248, 237);</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>290</y>
+      <y>280</y>
       <width>251</width>
       <height>101</height>
      </rect>
@@ -408,7 +408,7 @@ color: rgb(250, 248, 237);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="title">
@@ -434,7 +434,7 @@ color: rgb(250, 248, 237);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(250, 248, 237);
-background-color: rgb(216, 162, 108);</string>
+background-color: rgb(137, 118, 111);</string>
      </property>
      <property name="text">
       <string>По возрастанию</string>
@@ -463,7 +463,7 @@ background-color: rgb(216, 162, 108);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(250, 248, 237);
-background-color: rgb(216, 162, 108);</string>
+background-color: rgb(137, 118, 111);</string>
      </property>
      <property name="text">
       <string>По убыванию</string>
@@ -474,7 +474,7 @@ background-color: rgb(216, 162, 108);</string>
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>450</y>
+      <y>480</y>
       <width>161</width>
       <height>32</height>
      </rect>
@@ -486,7 +486,7 @@ background-color: rgb(216, 162, 108);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
@@ -512,7 +512,7 @@ color: rgb(250, 248, 237);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
@@ -538,7 +538,7 @@ color: rgb(250, 248, 237);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
@@ -564,7 +564,7 @@ color: rgb(250, 248, 237);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
@@ -575,7 +575,7 @@ color: rgb(250, 248, 237);</string>
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>490</y>
+      <y>520</y>
       <width>161</width>
       <height>32</height>
      </rect>
@@ -587,11 +587,37 @@ color: rgb(250, 248, 237);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 181, 114);
+     <string notr="true">background-color: rgb(150, 126, 118);
 color: rgb(250, 248, 237);</string>
     </property>
     <property name="text">
      <string>Сравнить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_button">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>400</y>
+      <width>161</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(150, 126, 118);
+color: rgb(250, 248, 237);</string>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
     </property>
    </widget>
   </widget>
@@ -612,7 +638,7 @@ color: rgb(250, 248, 237);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(250, 248, 237);
-background-color: rgb(114, 130, 97);</string>
+background-color: rgb(121, 134, 145);</string>
    </property>
    <widget class="QMenu" name="about_author">
     <property name="font">

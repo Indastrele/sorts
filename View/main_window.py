@@ -12,12 +12,12 @@ from PySide6 import QtCore, QtGui, QtWidgets
 class Ui_main_window(object):
     def _setupUi(self, main_window):
         main_window.setObjectName("main_window")
-        main_window.resize(652, 578)
+        main_window.resize(652, 608)
         font = QtGui.QFont()
         font.setFamily("Courier New")
         main_window.setFont(font)
         main_window.setAutoFillBackground(False)
-        main_window.setStyleSheet("background-color: rgb(153, 176, 128);")
+        main_window.setStyleSheet("background-color: rgb(155, 171, 184);")
         self.centralwidget = QtWidgets.QWidget(parent=main_window)
         self.centralwidget.setObjectName("centralwidget")
         self.generate_label = QtWidgets.QLabel(parent=self.centralwidget)
@@ -59,16 +59,16 @@ class Ui_main_window(object):
         font.setPointSize(20)
         self.generate_button.setFont(font)
         self.generate_button.setAutoFillBackground(False)
-        self.generate_button.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.generate_button.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.generate_button.setObjectName("generate_button")
         self.unsorted_array_text_edit = QtWidgets.QTextEdit(parent=self.centralwidget)
-        self.unsorted_array_text_edit.setGeometry(QtCore.QRect(20, 170, 341, 101))
+        self.unsorted_array_text_edit.setGeometry(QtCore.QRect(20, 170, 341, 141))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.unsorted_array_text_edit.setFont(font)
-        self.unsorted_array_text_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.unsorted_array_text_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.unsorted_array_text_edit.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.unsorted_array_text_edit.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
@@ -76,12 +76,12 @@ class Ui_main_window(object):
         self.unsorted_array_text_edit.setReadOnly(True)
         self.unsorted_array_text_edit.setObjectName("unsorted_array_text_edit")
         self.sorted_array_text_edit = QtWidgets.QTextEdit(parent=self.centralwidget)
-        self.sorted_array_text_edit.setGeometry(QtCore.QRect(20, 320, 341, 101))
+        self.sorted_array_text_edit.setGeometry(QtCore.QRect(20, 360, 341, 131))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.sorted_array_text_edit.setFont(font)
-        self.sorted_array_text_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.sorted_array_text_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.sorted_array_text_edit.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.sorted_array_text_edit.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
@@ -95,7 +95,7 @@ class Ui_main_window(object):
         font.setPointSize(20)
         self.sort_choice_group_box.setFont(font)
         self.sort_choice_group_box.setAutoFillBackground(False)
-        self.sort_choice_group_box.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.sort_choice_group_box.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.sort_choice_group_box.setObjectName("sort_choice_group_box")
         self.merge_sort_radiobutton = QtWidgets.QRadioButton(parent=self.sort_choice_group_box)
@@ -106,7 +106,7 @@ class Ui_main_window(object):
         self.merge_sort_radiobutton.setFont(font)
         self.merge_sort_radiobutton.setAutoFillBackground(False)
         self.merge_sort_radiobutton.setStyleSheet("color: rgb(250, 248, 237);\n"
-"background-color: rgb(216, 162, 108);")
+"background-color: rgb(137, 118, 111);")
         self.merge_sort_radiobutton.setChecked(True)
         self.merge_sort_radiobutton.setObjectName("merge_sort_radiobutton")
         self.heap_sort_radiobutton = QtWidgets.QRadioButton(parent=self.sort_choice_group_box)
@@ -117,7 +117,7 @@ class Ui_main_window(object):
         self.heap_sort_radiobutton.setFont(font)
         self.heap_sort_radiobutton.setAutoFillBackground(False)
         self.heap_sort_radiobutton.setStyleSheet("color: rgb(250, 248, 237);\n"
-"background-color: rgb(216, 162, 108);")
+"background-color: rgb(137, 118, 111);")
         self.heap_sort_radiobutton.setObjectName("heap_sort_radiobutton")
         self.unsorted_array_label = QtWidgets.QLabel(parent=self.centralwidget)
         self.unsorted_array_label.setGeometry(QtCore.QRect(140, 140, 91, 21))
@@ -128,7 +128,7 @@ class Ui_main_window(object):
         self.unsorted_array_label.setStyleSheet("color: rgb(250, 248, 237);")
         self.unsorted_array_label.setObjectName("unsorted_array_label")
         self.sorted_array_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.sorted_array_label.setGeometry(QtCore.QRect(60, 290, 271, 21))
+        self.sorted_array_label.setGeometry(QtCore.QRect(60, 330, 271, 21))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
@@ -136,23 +136,23 @@ class Ui_main_window(object):
         self.sorted_array_label.setStyleSheet("color: rgb(250, 248, 237);")
         self.sorted_array_label.setObjectName("sorted_array_label")
         self.sort_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.sort_button.setGeometry(QtCore.QRect(420, 410, 161, 32))
+        self.sort_button.setGeometry(QtCore.QRect(420, 440, 161, 32))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.sort_button.setFont(font)
         self.sort_button.setAutoFillBackground(False)
-        self.sort_button.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.sort_button.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.sort_button.setObjectName("sort_button")
         self.speed_text_edit = QtWidgets.QTextEdit(parent=self.centralwidget)
-        self.speed_text_edit.setGeometry(QtCore.QRect(20, 440, 341, 71))
+        self.speed_text_edit.setGeometry(QtCore.QRect(20, 510, 341, 41))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.speed_text_edit.setFont(font)
         self.speed_text_edit.setAutoFillBackground(True)
-        self.speed_text_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.speed_text_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.speed_text_edit.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.speed_text_edit.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
@@ -160,13 +160,13 @@ class Ui_main_window(object):
         self.speed_text_edit.setReadOnly(True)
         self.speed_text_edit.setObjectName("speed_text_edit")
         self.criteria_group_box = QtWidgets.QGroupBox(parent=self.centralwidget)
-        self.criteria_group_box.setGeometry(QtCore.QRect(380, 290, 251, 101))
+        self.criteria_group_box.setGeometry(QtCore.QRect(380, 280, 251, 101))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.criteria_group_box.setFont(font)
         self.criteria_group_box.setAutoFillBackground(False)
-        self.criteria_group_box.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.criteria_group_box.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.criteria_group_box.setObjectName("criteria_group_box")
         self.ascending_order = QtWidgets.QRadioButton(parent=self.criteria_group_box)
@@ -177,7 +177,7 @@ class Ui_main_window(object):
         self.ascending_order.setFont(font)
         self.ascending_order.setAutoFillBackground(False)
         self.ascending_order.setStyleSheet("color: rgb(250, 248, 237);\n"
-"background-color: rgb(216, 162, 108);")
+"background-color: rgb(137, 118, 111);")
         self.ascending_order.setChecked(True)
         self.ascending_order.setObjectName("ascending_order")
         self.descending_order = QtWidgets.QRadioButton(parent=self.criteria_group_box)
@@ -188,15 +188,15 @@ class Ui_main_window(object):
         self.descending_order.setFont(font)
         self.descending_order.setAutoFillBackground(False)
         self.descending_order.setStyleSheet("color: rgb(250, 248, 237);\n"
-"background-color: rgb(216, 162, 108);")
+"background-color: rgb(137, 118, 111);")
         self.descending_order.setObjectName("descending_order")
         self.save_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.save_button.setGeometry(QtCore.QRect(420, 450, 161, 32))
+        self.save_button.setGeometry(QtCore.QRect(420, 480, 161, 32))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.save_button.setFont(font)
-        self.save_button.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.save_button.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.save_button.setObjectName("save_button")
         self.left_border_line_edit = QtWidgets.QLineEdit(parent=self.centralwidget)
@@ -206,7 +206,7 @@ class Ui_main_window(object):
         font.setPointSize(20)
         self.left_border_line_edit.setFont(font)
         self.left_border_line_edit.setAutoFillBackground(False)
-        self.left_border_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.left_border_line_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.left_border_line_edit.setObjectName("left_border_line_edit")
         self.right_border_line_edit = QtWidgets.QLineEdit(parent=self.centralwidget)
@@ -216,7 +216,7 @@ class Ui_main_window(object):
         font.setPointSize(20)
         self.right_border_line_edit.setFont(font)
         self.right_border_line_edit.setAutoFillBackground(False)
-        self.right_border_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.right_border_line_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.right_border_line_edit.setObjectName("right_border_line_edit")
         self.size_line_edit = QtWidgets.QLineEdit(parent=self.centralwidget)
@@ -226,18 +226,28 @@ class Ui_main_window(object):
         font.setPointSize(20)
         self.size_line_edit.setFont(font)
         self.size_line_edit.setAutoFillBackground(False)
-        self.size_line_edit.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.size_line_edit.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.size_line_edit.setObjectName("size_line_edit")
         self.compare_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.compare_button.setGeometry(QtCore.QRect(420, 490, 161, 32))
+        self.compare_button.setGeometry(QtCore.QRect(420, 520, 161, 32))
         font = QtGui.QFont()
         font.setFamily("Courier New")
         font.setPointSize(20)
         self.compare_button.setFont(font)
-        self.compare_button.setStyleSheet("background-color: rgb(249, 181, 114);\n"
+        self.compare_button.setStyleSheet("background-color: rgb(150, 126, 118);\n"
 "color: rgb(250, 248, 237);")
         self.compare_button.setObjectName("compare_button")
+        self.clear_button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.clear_button.setGeometry(QtCore.QRect(420, 400, 161, 32))
+        font = QtGui.QFont()
+        font.setFamily("Courier New")
+        font.setPointSize(20)
+        self.clear_button.setFont(font)
+        self.clear_button.setAutoFillBackground(False)
+        self.clear_button.setStyleSheet("background-color: rgb(150, 126, 118);\n"
+"color: rgb(250, 248, 237);")
+        self.clear_button.setObjectName("clear_button")
         main_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=main_window)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 652, 24))
@@ -246,7 +256,7 @@ class Ui_main_window(object):
         font.setPointSize(16)
         self.menubar.setFont(font)
         self.menubar.setStyleSheet("color: rgb(250, 248, 237);\n"
-"background-color: rgb(114, 130, 97);")
+"background-color: rgb(121, 134, 145);")
         self.menubar.setObjectName("menubar")
         self.about_author = QtWidgets.QMenu(parent=self.menubar)
         font = QtGui.QFont()
@@ -307,7 +317,7 @@ class Ui_main_window(object):
         self.heap_sort_radiobutton.setText(_translate("main_window", "Пирамидальная"))
         self.unsorted_array_label.setText(_translate("main_window", "Массив"))
         self.sorted_array_label.setText(_translate("main_window", "Отсортированный массив"))
-        self.sort_button.setText(_translate("main_window", "Отсортировать"))
+        self.sort_button.setText(_translate("main_window", "Сортировка"))
         self.criteria_group_box.setTitle(_translate("main_window", "Критерий"))
         self.ascending_order.setText(_translate("main_window", "По возрастанию"))
         self.descending_order.setText(_translate("main_window", "По убыванию"))
@@ -316,6 +326,7 @@ class Ui_main_window(object):
         self.right_border_line_edit.setText(_translate("main_window", "100"))
         self.size_line_edit.setText(_translate("main_window", "10"))
         self.compare_button.setText(_translate("main_window", "Сравнить"))
+        self.clear_button.setText(_translate("main_window", "Очистить"))
         self.about_author.setTitle(_translate("main_window", "О программе"))
         self.menu_3.setTitle(_translate("main_window", "Файл"))
         self.help.setText(_translate("main_window", "Таблица символов"))
