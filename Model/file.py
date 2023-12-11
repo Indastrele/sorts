@@ -3,7 +3,7 @@ import docx2txt
 
 
 class File:
-    def __init__(self, ):
+    def __init__(self):
         self.__ref = str()
 
     # reading information from file

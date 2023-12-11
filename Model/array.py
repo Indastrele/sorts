@@ -36,6 +36,9 @@ class Array:
             left = ord(left)
             right = ord(right)
 
+            if right < left:
+                return "Сообщение об ошибке", "Некорректный ввод данных"
+
             self.__generator(left, right, size)
             tmp_array = list()
             for i in self.__array:
@@ -47,10 +50,18 @@ class Array:
             left = int(left)
             right = int(right)
 
+            if right < left:
+                return "Сообщение об ошибке", "Некорректный ввод данных"
+
             self.__generator(left, right, size)
         elif not left.isalpha() and not right.isalpha() and ("." in left or "." in right):
+            if not str(left[::left.find('.')] + left[left.find('.')::]).isdigit() or not str(right[::right.find('.')] + right[right.find('.')::]).isdigit() :
+                return "Сообщение об ошибке", "Некорректный ввод данных"
             left = float(left)
             right = float(right)
+
+            if right < left:
+                return "Сообщение об ошибке", "Некорректный ввод данных"
 
             self.__float_generator(left, right, size)
         else:
@@ -177,6 +188,7 @@ class Array:
     # there are some checks for the right type of sort
     def heap_sort(self, asc, desc):
         self.__sort_time = time.time()
+        # creating a heap from array
         for i in range(self.get_size() // 2 - 1, -1, -1):
             if asc:
                 if str(self.__array[0]).isalpha() or\
@@ -194,6 +206,7 @@ class Array:
                 else:
                     self.__heap_sort_nums_descending(i, self.get_size())
 
+        # sifting heap to sort it
         if asc:
             for i in range(self.get_size() - 1, 0, -1):
                 self.__array[i], self.__array[0] = self.__array[0], self.__array[i]
@@ -215,6 +228,7 @@ class Array:
                     self.__heap_sort_nums_descending(0, i)
         self.__sort_time = time.time() - self.__sort_time
 
+    # next 4 methods are sifting methods for heap sort
     def __heap_sort_strings_ascending(self, i, size):
         largest_child = i
         left_child = 2 * i + 1
